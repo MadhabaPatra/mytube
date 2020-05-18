@@ -29,6 +29,4 @@ def download(VIDEO_ID):
     return Get(VIDEO_ID)
 
 if __name__ == "__main__":
-    from waitress import serve
-    serve(app, host="localhost", port=8081)
-app.run()
+    app.run()
