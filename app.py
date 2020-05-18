@@ -21,7 +21,7 @@ def Get(url):
 def download(url):
     myvid = pafy.new(url)
     best = myvid.getbest()
-    return return redirect(best.url, code=302)
+    return redirect(best.url, code=302)
 
 # HOME route
 @app.route('/', methods=['GET'])
