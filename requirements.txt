@@ -1,0 +1,5 @@
+pafy
+flask
+youtube-dl
+gunicorn
+waitress
