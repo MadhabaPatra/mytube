@@ -31,7 +31,7 @@ def home():
 
 # DOWNLOAD route
 @app.route('/download/<VIDEO_ID>', methods=['GET'])
-def download(VIDEO_ID):
+def getdownloadlink(VIDEO_ID):
     return download(VIDEO_ID)
 
 # DETAILS route
