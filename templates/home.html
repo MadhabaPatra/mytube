@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> MyTube Downloader</title>
+    <link rel="shortcut icon" href="https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> 
+</head>
+<body>
+
+  <div class="jumbotron">
+
+      <img src="{{ url_for('static', filename='logo.png') }}"  alt="..."  style="height:15vh; width: 15vh;">
+    <h3 class="display-5">Welcome To MyTube Downloader!</h3>
+    <p class="lead">This is a simple youtube downloader.</p>
+    <hr class="my-4">
+    <p>Paste your youtube video link here</p>
+    {% if invalid: %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{invalid}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+    {% endif %}
+    <form method="post">
+      <input type="text" class="form-control my-3" name="link"/>
+      <button class="btn btn-primary btn-lg">Get Video</button> 
+    </form>
+  </div>
+  <div class="text-center">
+    <a href="https://madhabapatra.github.io"><button type="button" class="btn btn-dark text-center">Made by Madhaba Patra</button></a>  
+   </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</html>

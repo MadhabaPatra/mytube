@@ -1,6 +1,7 @@
 import flask
 import pafy
-from flask import request, jsonify,redirect
+import json
+from flask import request, jsonify,redirect,render_template
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -16,7 +17,8 @@ def Get(url):
      'youtube':"https://www.youtube.com/watch?v="+url,
      'download': best.url,
      },]
-    return jsonify(response)
+     
+    return render_template('details.html',download=best.url,name=myvid.title)
 
 def download(url):
     myvid = pafy.new(url)
@@ -26,9 +28,18 @@ def download(url):
 # HOME route
 @app.route('/', methods=['GET'])
 def home():
-    return '''<h1>My Tube Downloader</h1>
-<p>An API To Generate Download Link for your youtube link.</p>'''
+    return render_template('home.html')
 
+@app.route('/', methods=['POST'])
+def getvalue():
+    try:
+        link=request.form['link']
+        myvid = pafy.new(link)
+        best = myvid.getbest()
+        audiostreams = myvid.audiostreams
+        return render_template('details.html',link=link,name=myvid.title,thumb=myvid.thumb,streams=myvid.streams,audiostreams=audiostreams,rating=myvid.rating,author=myvid.author,duration=myvid.duration,likes=myvid.likes,dislikes=myvid.dislikes)
+    except:
+            return render_template('home.html',invalid="invalid video url")
 # DOWNLOAD route
 @app.route('/download/<VIDEO_ID>', methods=['GET'])
 def getdownloadlink(VIDEO_ID):
