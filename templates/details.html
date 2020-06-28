@@ -3,10 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyTube Downloader</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> 
-    <link rel="shortcut icon" href="https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png" type="image/x-icon">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+    <link rel="shortcut icon" href="https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> 
   </head>
 <body onclick="play()">
   <div class="jumbotron jumbotron-fluid">
@@ -33,24 +32,40 @@
               Watch it on <span class="badge badge-light">youtube </span>
             </button>
           </a>
-         
-          <hr>
+   
+          <h5 class="card-header">Video</h5>
           {% for s in streams %}
           <a href={{s.url}}><button class="btn btn-primary my-2">Download {{s.extension}}({{s.resolution}})</button> </a> size: {{s.get_filesize()*0.000001}} MB <br>
           {% endfor %}
-         
+          <h5 class="card-header">Audio</h5>
           {% for a in audiostreams %}
           <a href={{a.url}}><button class="btn btn-warning my-2">Download {{a.bitrate}}({{a.extension}})</button> </a> size: {{a.get_filesize()*0.000001}} MB <br>
           {% endfor %}
     </div>
   </div>
-  <div class="text-center m-3">
+  <br />
+  <div class="text-center">
     <a href="https://madhabapatra.github.io"><button type="button" class="btn btn-dark text-center">Made by Madhaba Patra</button></a>  
-<br>
-     <a class="m-3" href="https://wa.me/917873476062?text=hiii..Madhab"><button type="button" class="btn btn-success text-center">connect with me <i class="fab fa-whatsapp"></i></button></a>
    </div>
+
    <audio id="audio" src="{{ url_for('static', filename='THANKS-FOR-USING-YOUTUBE-DOWNL1593334488.mp3') }}"></audio>
 </body>
+
+<div class="text-center mt-2">
+  <a target="_blank" class="mx-2 text-danger" href="https://www.facebook.com/madhaba.patra"><i class="fab fa-facebook "></i></a>
+  <a target="_blank" class="mx-2 text-danger" href="https://www.instagram.com/mr_descifrador/"><i class="fab fa-instagram"></i></a>
+  <a target="_blank" class="mx-2 text-danger" href="https://github.com/MadhabaPatra"><i class="fab fa-github "></i></a>
+  <a target="_blank" class="mx-2 text-danger" href="https://in.linkedin.com/in/madhaba-patra-?trk=people-guest_profile-result-card_result-card_full-click"><i class="fab fa-linkedin"></i></a>
+  <a target="_blank" class="mx-2 text-danger" href="https://twitter.com/MadhabaPatra1"><i class="fab fa-twitter "></i></a>
+  <a target="_blank" class="mx-2 text-danger" href="https://play.google.com/store/apps/dev?id=6001374307369301068"><i class="fab fa-google-play"></i></a>
+</div>
+<div class="text-center mt-2">
+<h5 class="btn btn-warning text-center">More projects</h5> <br />
+<a class="mx-2 text-danger" target="_blank" href="http://voonkart.com"> <img src="https://raw.githubusercontent.com/MadhabaPatra/eCommerce/master/REMODEL.png" style="width:50px;height:30px;"/></a>
+<a class="mx-2 text-danger" target="_blank" href="http://linkc.madhaba.me"> <img src="https://raw.githubusercontent.com/MadhabaPatra/LinkC/master/images/logo.png" style="width:50px;height:30px;"/></a>
+<a class="mx-2 text-danger" target="_blank" href="https://play.google.com/store/apps/details?id=com.gvjc.gvjcoles"> <img src="https://raw.githubusercontent.com/GyanaVikash/docs/master/GVJC/gvjc_oles_playstore_logo.png" style="width:30px;height:30px;"/></a>
+</div>
+
 <script>
   var isBodyClicked = false;
   function play(){
